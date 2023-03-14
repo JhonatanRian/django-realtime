@@ -11,7 +11,9 @@ Implementação de websockets para aplicação de chat
 
 `
 $ sudo docker pull redis
-$ docker run -d -p 6379:6379 --name redis-container redis
+`
+`
+$ $ docker run -d -p 6379:6379 --name redis-container redis
 `
 
 Depois é só testar:
