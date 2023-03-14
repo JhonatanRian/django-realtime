@@ -1,4 +1,4 @@
-MIT License
+async_to_sync(channel_layer.receive)('test_channel')MIT License
 
 Copyright (c) 2023 Jhonatan Rian
 

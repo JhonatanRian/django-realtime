@@ -11,7 +11,7 @@ class SalaView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(SalaView, self).get_context_data(**kwargs)
-        context['nome_sala'] = mark_safe(
-            json.dumps(self.kwargs['nome_sala'])
+        context['room_name'] = mark_safe(
+            json.dumps(self.kwargs['room_name'])
         )
         return context

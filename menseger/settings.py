@@ -32,8 +32,9 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'channels',
-    'chat'
+    'bootstrap4',
+    "daphne",
+    'chat',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,11 +130,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Especifica do Channels
-ASGI_APPLICATION = 'menseger.routing.application'
+ASGI_APPLICATION = 'menseger.asgi.application'
 
 CHANNEL_LAYERS = {
     "default":{
         "BACKEND": "channels_redis.core.RedisChannelLayer",
+        # "BACKEND": "channels.layers.InMemoryChannelLayer",
         "CONFIG": {
             "hosts": [('127.0.0.1', '6379')]
         }
