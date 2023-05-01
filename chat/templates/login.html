@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+</head>
+
+<body>
+    {% if messages %}
+    {% for message in messages %}
+    <span {% if message.tags %} class="alert item- alert-{{ message.tags }}" {% endif %}>{{ message }}</span>
+    {% endfor %}
+    {% endif %}
+
+    <div class="w-lg-500px bg-dark rounded shadow-sm p-10 p-lg-15 mx-auto">
+        <!--begin::Form//novalidate="novalidate" id="kt_sign_in_form"-->
+        <form class="form w-100" role="form" action="{% url 'login' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!--begin::Heading-->
+            <div class="text-center mb-8">
+                <!--begin::Title-->
+                <h1 class="text-white mb-3">Login</h1>
+                <!--end::Title-->
+                <!--begin::Link-->
+                <!--end::Link-->
+            </div>
+            <!--begin::Heading-->
+            <!--begin::Input group-->
+            <div class="fv-row mb-8">
+                <!--begin::Label-->
+                <label class="form-label fs-6 fw-bolder text-white">Email</label>
+                <!--end::Label-->
+                <!--begin::Input-->
+                {{ form.username }}
+                <!--end::Input-->
+            </div>
+            <!--end::Input group-->
+            <!--begin::Input group-->
+            <div class="fv-row mb-10">
+                <!--begin::Wrapper-->
+                <div class="d-flex flex-stack mb-2">
+                    <!--begin::Label-->
+                    <label class="form-label fw-bolder text-white fs-6 mb-0">Password</label>
+                    {{ form.password }}
+
+                    <!--end::Label-->
+                    <!--begin::Link-->
+                    <!--end::Link-->
+                </div>
+                <!--end::Wrapper-->
+                <!--begin::Input-->
+                <!--end::Input-->
+            </div>
+            <!--end::Input group-->
+            <!--begin::Actions-->
+            <div class="text-center">
+                <!--begin::Submit button//id="kt_sign_in_submit"-->
+                <button type="submit" class="btn btn-lg btn-primary w-100 mb-5" name="reg_user">
+                    <span class="indicator-label">Continue</span>
+                    <span class="indicator-progress">Please wait...
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                </button>
+                <span class="mb-0 text-warning">
+                    <span class="mb-0 text-danger">
+                        {% if msg %}
+                        {{ msg | safe }}
+                        {% endif %}
+                    </span>
+                </span>
+                <!--end::Submit button-->
+                <!--begin::Separator-->
+
+            </div>
+            <!--end::Actions-->
+        </form>
+        <!--end::Form-->
+    </div>
+</body>
+
+</html>
